@@ -1,0 +1,7 @@
+# 🚀 QADEER-MD Heroku Deployment Config
+build:
+  docker:
+    worker: Dockerfile
+
+run:
+  worker: pm2-runtime index.js
