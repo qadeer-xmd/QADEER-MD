@@ -1,60 +1,94 @@
 /**
- * 🔑 QADEER-MD Pairing Script
- * یہ script WhatsApp نمبر سے Session Id generate کرنے کے لیے ہے
+ * 💥 QADEER-MD PAIRING SYSTEM 💥
+ * Made with 💖 by Qadeer Brahvi
  */
 
 const express = require("express");
-const makeWASocket = require("@whiskeysockets/baileys").default;
-const { useMultiFileAuthState, fetchLatestBaileysVersion } = require("@whiskeysockets/baileys");
+const { Boom } = require("@hapi/boom");
+const {
+  default: makeWASocket,
+  makeCacheableSignalKeyStore,
+  useMultiFileAuthState,
+  fetchLatestBaileysVersion,
+  makeInMemoryStore,
+  DisconnectReason,
+  jidNormalizedUser,
+  PHONENUMBER_MCC
+} = require("@whiskeysockets/baileys");
+
+const pino = require("pino");
 const qrcode = require("qrcode");
+const fs = require("fs");
 
+const PORT = process.env.PORT || 3000;
 const app = express();
-const PORT = process.env.PORT || 5000;
 
+let pairingCode = null;
+
+// 🌐 Home Page
 app.get("/", (req, res) => {
-  res.send("✅ QADEER-MD Pair Server is running! <br> Visit /pair to get Session Id.");
+  res.send(`
+    <center>
+      <h1>💥 QADEER-MD PAIRING 💥</h1>
+      <p>👇 Click below to get your WhatsApp Pairing Code 👇</p>
+      <a href="/pair"><button style="padding:10px;background:green;color:white;border:none;border-radius:5px;">Get Pairing Code</button></a>
+      <br><br>
+      <p>© Powered by Qadeer-MD</p>
+      <img src="https://files.catbox.moe/sidq95.jpg" width="250"/>
+    </center>
+  `);
 });
 
+// 🚀 Pairing Endpoint
 app.get("/pair", async (req, res) => {
   try {
-    const { state, saveCreds } = await useMultiFileAuthState("auth_info_pair");
+    const { state, saveCreds } = await useMultiFileAuthState("auth_info");
     const { version } = await fetchLatestBaileysVersion();
 
     const sock = makeWASocket({
-      auth: state,
       version,
-      printQRInTerminal: true,
+      logger: pino({ level: "silent" }),
+      printQRInTerminal: false,
+      browser: ["QADEER-MD", "Chrome", "5.0"],
+      auth: state,
     });
-
-    let qrCodeData = "";
 
     sock.ev.on("connection.update", async (update) => {
-      const { qr, connection } = update;
+      const { connection, lastDisconnect, qr } = update;
+
       if (qr) {
-        qrCodeData = await qrcode.toDataURL(qr);
+        const qrImage = await qrcode.toDataURL(qr, { scale: 8 });
         res.send(`
-          <h2>📲 QADEER-MD Pair</h2>
-          <p>Scan this QR code in your WhatsApp linked devices:</p>
-          <img src="${qrCodeData}" />
-          <p>After scan, check your server logs for Session Id ✅</p>
+          <center>
+            <h2>📱 Scan this QR with WhatsApp</h2>
+            <img src="${qrImage}" width="300"/>
+            <p>Open WhatsApp > Linked Devices > Link a Device</p>
+            <br>
+            <p>© Powered by QADEER-MD</p>
+          </center>
         `);
       }
+
       if (connection === "open") {
-        console.log("✅ Connected successfully!");
+        console.log("✅ Connected!");
+        res.send("<h1>✅ QADEER-MD Successfully Connected!</h1>");
+        await saveCreds();
+      }
+
+      if (connection === "close") {
+        let reason = new Boom(lastDisconnect?.error)?.output.statusCode;
+        console.log("❌ Connection closed", reason);
       }
     });
 
-    sock.ev.on("creds.update", async () => {
-      await saveCreds();
-      const creds = require("fs").readFileSync("./auth_info_pair/creds.json");
-      console.log("🔑 Your Session Id:", creds.toString());
-    });
+    sock.ev.on("creds.update", saveCreds);
   } catch (e) {
-    console.error("❌ Error in Pair:", e);
-    res.send("❌ Error: " + e.message);
+    console.error("❌ Pairing Error:", e);
+    res.send("<h2>❌ Something went wrong. Please try again.</h2>");
   }
 });
 
+// Start Server
 app.listen(PORT, () => {
-  console.log(`🌐 QADEER-MD Pair server running on http://localhost:${PORT}`);
+  console.log(`🌍 QADEER-MD Pairing Server Running on Port ${PORT}`);
 });
