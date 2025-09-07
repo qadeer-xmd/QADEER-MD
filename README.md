@@ -1,63 +1,64 @@
-# 💥 QADEER-MD 💥
-
+# 🌟 QADEER-MD 🌟  
 <p align="center">
-  <img src="https://files.catbox.moe/sidq95.jpg" alt="QADEER-MD" width="300"/>
+  <img alt="QADEER-MD" src="https://files.catbox.moe/sidq95.jpg" width="300"/>
 </p>
 
-<h3 align="center">A Powerful, Fast & Secure WhatsApp Multi-Device Bot</h3>
-<h4 align="center">Made with 💖 by <a href="https://github.com/qadeer-xmd">Qadeer Brahvi</a></h4>
+<h3 align="center">💥 Powerful • Fast • Secure • Multi-Device WhatsApp Bot 💥</h3>  
+<p align="center">Made with 💖 by <b>Qadeer Brahvi</b></p>  
 
 ---
 
-## 🛡️ Badges
+## 🔰 Badges
 <p align="center">
-  <img src="https://img.shields.io/github/stars/qadeer-xmd/QADEER-MD?style=for-the-badge&color=yellow" />
-  <img src="https://img.shields.io/github/forks/qadeer-xmd/QADEER-MD?style=for-the-badge&color=blue" />
-  <img src="https://img.shields.io/github/issues/qadeer-xmd/QADEER-MD?style=for-the-badge&color=red" />
-  <img src="https://img.shields.io/github/license/qadeer-xmd/QADEER-MD?style=for-the-badge&color=green" />
-  <img src="https://img.shields.io/badge/Node-%3E=20.x-green?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/NPM-%3E=10.x-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/github/stars/qadeer-xmd/QADEER-MD?style=for-the-badge&color=gold"/>
+  <img src="https://img.shields.io/github/forks/qadeer-xmd/QADEER-MD?style=for-the-badge&color=green"/>
+  <img src="https://img.shields.io/github/issues/qadeer-xmd/QADEER-MD?style=for-the-badge&color=red"/>
+  <img src="https://img.shields.io/badge/WA--BOT-QADEER--MD-darkblue?style=for-the-badge&logo=whatsapp"/>
 </p>
 
 ---
 
-## 🔑 Get Session ID
-To connect your WhatsApp with **QADEER-MD**, you need a **Session ID**.  
-Click the button below 👇  
-
-👉 **[Generate Session ID](https://qadeermd-pair-8f13c236a685.herokuapp.com/)**  
-
----
-
-## ✨ Features
-- ✅ Auto Reply  
-- ✅ Auto Sticker  
-- ✅ Anti Delete  
-- ✅ Anti Link  
-- ✅ Welcome / Goodbye  
-- ✅ Auto Status Seen / Reaction  
-- ✅ Group Management  
-- ✅ Owner Commands  
-- 🚀 And much more...
+## ⚡ Features  
+✅ Auto Reply  
+✅ Sticker Maker  
+✅ Anti Delete  
+✅ Anti Link  
+✅ Welcome / Goodbye  
+✅ Auto Status Seen & Reaction  
+✅ Owner Commands  
+✅ Group Management  
+✅ Fun Commands  
+✅ Much More... 🚀  
 
 ---
 
-## 🚀 Deploy on Heroku
-Easily deploy **QADEER-MD** on **Heroku** by clicking below 👇  
+## 🔑 Get Session ID  
+You need **SESSION_ID** before deployment.  
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/qadeer-xmd/QADEER-MD)
+👉 Click below to generate your session:  
+
+<p align="center">
+  <a href="https://long-otha-anayatking-3e195191.koyeb.app/">
+    <img alt="Get Session" src="https://img.shields.io/badge/Get%20Session%20ID-red?style=for-the-badge&logo=whatsapp&logoColor=white"/>
+  </a>
+</p>
 
 ---
 
-## 🛠️ Installation (Local / VPS)
+## 🚀 Deployment Options  
 
+### 🔹 Deploy to Heroku  
+<p align="center">
+  <a href="https://dashboard.heroku.com/new?template=https://github.com/qadeer-xmd/QADEER-MD">
+    <img alt="Deploy to Heroku" src="https://www.herokucdn.com/deploy/button.svg"/>
+  </a>
+</p>
+
+---
+
+### 🔹 Deploy on Koyeb  
 ```bash
-# Clone Repo
 git clone https://github.com/qadeer-xmd/QADEER-MD
 cd QADEER-MD
-
-# Install Dependencies
 npm install
-
-# Start Bot
 npm start
