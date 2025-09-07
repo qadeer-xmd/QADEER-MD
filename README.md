@@ -1,47 +1,41 @@
-# ⚡ QADEER-MD ⚡  
+# 💥 QADEER-MD 💥
+
+A WhatsApp Multi-Device Bot Made With 💖 by **Qadeer Brahvi**  
+Fast • Secure • Easy to Deploy • Multi-Feature  
 
 <p align="center">
-  <img src="https://files.catbox.moe/sidq95.jpg" alt="QADEER-MD" width="300"/>
-</p>
-
-<p align="center">
-  <b>A WhatsApp Multi-Device Bot Built With 💖 By Qadeer Brahvi</b><br>
-  Powerful • Fast • Secure • Easy to Deploy
+  <img src="https://files.catbox.moe/7nf8cb.jpg" width="250" height="250" />
 </p>
 
 ---
 
-## 🌟 Features
-- 🤖 Auto Reply & Auto Sticker  
-- 🔥 Anti Delete & Anti Link  
-- 👋 Welcome / Goodbye Messages  
-- 👑 Owner Commands  
-- 👥 Group Management  
-- 👀 Auto Status Seen + Reaction  
-- ⚡ Always Online Mode  
-- 🛠 100+ Fun & Useful Commands  
+## ✨ Features
+- Auto Reply 🤖  
+- Auto Sticker 🎭  
+- Anti Delete 🛑  
+- Anti Link 🚫  
+- Welcome / Goodbye 🎉  
+- Auto Status Seen 👀  
+- Auto Reaction ❤️  
+- Group Management 👥  
+- Owner Commands 👑  
+- And Much More... 🚀  
 
 ---
 
-## ⚙️ Configuration
-Set these **environment variables** before running the bot:  
+## 🔑 Get Pairing Code (Session ID)
 
-- `SESSION_ID` → Your WhatsApp Session  
-- `OWNER_NAME` → Your Name (e.g., **Qadeer Brahvi**)  
-- `OWNER_NUMBER` → Your WhatsApp Number (e.g., **923300005253**)  
-- `BOT_NAME` → Bot Name (e.g., **QADEER-MD**)  
+Click the button below to get your **WhatsApp Session** 👇  
+
+[![PAIR](https://img.shields.io/badge/PAIR%20SESSION-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://qadeer-md.onrender.com/pair)
 
 ---
 
 ## 🚀 Deploy to Heroku
 
-Click below button to deploy **QADEER-MD** directly on **Heroku** 👇  
+Click below to deploy **QADEER-MD** directly to **Heroku** 👇  
 
-<p align="center">
-  <a href="https://heroku.com/deploy?template=https://github.com/qadeer-xmd/QADEER-MD">
-    <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-  </a>
-</p>
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/qadeer-xmd/QADEER-MD)
 
 ---
 
