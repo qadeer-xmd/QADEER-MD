@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QADEER-MD QR Login</title>
+  <link rel="icon" href="https://files.catbox.moe/sidq95.jpg">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #111, #222);
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 20px;
+      background: #000;
+      border-bottom: 2px solid #444;
+    }
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #ff3333;
+    }
+    h1 {
+      margin: 15px 0 5px;
+      font-size: 28px;
+      color: #ff3333;
+    }
+    p {
+      font-size: 16px;
+      color: #ccc;
+    }
+    .qr-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    }
+    #qrcode {
+      width: 250px;
+      height: 250px;
+      margin: auto;
+      border: 3px solid #ff3333;
+      border-radius: 10px;
+      background: white;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 15px;
+      background: #000;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://files.catbox.moe/sidq95.jpg" alt="QADEER-MD Logo">
+    <h1>💥 QADEER-MD QR LOGIN 💥</h1>
+    <p>Scan the QR code below with your WhatsApp to login.</p>
+  </header>
+
+  <main>
+    <div class="qr-box">
+      <canvas id="qrcode"></canvas>
+      <p>Open WhatsApp > Linked Devices > Scan QR</p>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Powered by Qadeer Brahvi • QADEER-MD
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    // Example QR code (replace this with actual dynamic QR from your backend)
+    const qrData = "YOUR_DYNAMIC_QR_STRING_HERE";
+    QRCode.toCanvas(document.getElementById("qrcode"), qrData, function (error) {
+      if (error) console.error(error);
+      console.log("QR Code generated!");
+    });
+  </script>
+</body>
+</html>
