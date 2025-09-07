@@ -1,41 +1,50 @@
 # 💥 QADEER-MD 💥
 
-A WhatsApp Multi-Device Bot Made With 💖 by **Qadeer Brahvi**  
-Fast • Secure • Easy to Deploy • Multi-Feature  
-
 <p align="center">
-  <img src="https://files.catbox.moe/7nf8cb.jpg" width="250" height="250" />
+  <img src="https://files.catbox.moe/sidq95.jpg" alt="QADEER-MD" width="250"/>
 </p>
 
----
-
-## ✨ Features
-- Auto Reply 🤖  
-- Auto Sticker 🎭  
-- Anti Delete 🛑  
-- Anti Link 🚫  
-- Welcome / Goodbye 🎉  
-- Auto Status Seen 👀  
-- Auto Reaction ❤️  
-- Group Management 👥  
-- Owner Commands 👑  
-- And Much More... 🚀  
+A WhatsApp Multi-Device Bot Made With 💖 by **Qadeer Brahvi**  
+Powerful • Fast • Secure • Easy to Deploy  
 
 ---
 
-## 🔑 Get Pairing Code (Session ID)
+## 🔰 Features
+- Auto Reply  
+- Auto Sticker  
+- Anti Delete  
+- Anti Link  
+- Welcome / Goodbye  
+- Auto Status Seen / Reaction  
+- Owner Commands  
+- Group Management  
+- Much More... 🚀  
 
-Click the button below to get your **WhatsApp Session** 👇  
+---
 
-[![PAIR](https://img.shields.io/badge/PAIR%20SESSION-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://qadeer-md.onrender.com/pair)
+## ⚙️ Configuration
+Before running the bot, make sure to set these environment variables:
+
+- `SESSION_ID` → Your WhatsApp Session  
+- `OWNER_NAME` → Your Name (e.g., Qadeer Brahvi)  
+- `OWNER_NUMBER` → Your WhatsApp Number (e.g., 923300005253)  
+- `BOT_NAME` → Bot Name (e.g., QADEER-MD)  
 
 ---
 
 ## 🚀 Deploy to Heroku
 
-Click below to deploy **QADEER-MD** directly to **Heroku** 👇  
+Click the button below to deploy QADEER-MD directly to **Heroku** 👇  
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/qadeer-xmd/QADEER-MD)
+
+---
+
+## 🔗 Pairing Session
+
+To connect your WhatsApp and get your **SESSION_ID**, click the button below 👇  
+
+[![PAIR QADEER-MD](https://img.shields.io/badge/Pair_QADEER--MD-blue?style=for-the-badge&logo=whatsapp)](https://qadeer-md-pair.onrender.com)
 
 ---
 
