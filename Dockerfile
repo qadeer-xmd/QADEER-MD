@@ -1,26 +1,14 @@
-# -------------------------------
-# 🚀 QADEER-MD Dockerfile
-# Base Image
-# -------------------------------
 FROM node:lts-buster
 
-# 📝 Maintainer Info
-LABEL maintainer="Qadeer Brahvi <qadeer-xmd>"
-
-# 🌍 Working Directory
+# App Clone
+RUN git clone https://github.com/qadeer-xmd/QADEER-MD /root/QADEER-MD
 WORKDIR /root/QADEER-MD
 
-# 🔥 Clone your repo directly
-RUN git clone https://github.com/qadeer-xmd/QADEER-MD.git .
+# Dependencies
+RUN npm install && npm install -g pm2
 
-# 📦 Install dependencies
-RUN npm install --production && npm install -g pm2
-
-# 🔁 Copy remaining files (if needed during rebuilds)
 COPY . .
 
-# 🌐 Expose port
-EXPOSE 3000
+EXPOSE 8080
 
-# 🚀 Start the bot using PM2 for process management
-CMD ["pm2-runtime", "index.js"]
+CMD ["npm", "start"]
