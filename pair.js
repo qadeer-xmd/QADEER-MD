@@ -1,94 +1,54 @@
-/**
- * 💥 QADEER-MD PAIRING SYSTEM 💥
- * Made with 💖 by Qadeer Brahvi
- */
-
-const express = require("express");
-const { Boom } = require("@hapi/boom");
-const {
-  default: makeWASocket,
-  makeCacheableSignalKeyStore,
-  useMultiFileAuthState,
-  fetchLatestBaileysVersion,
-  makeInMemoryStore,
-  DisconnectReason,
-  jidNormalizedUser,
-  PHONENUMBER_MCC
-} = require("@whiskeysockets/baileys");
-
-const pino = require("pino");
-const qrcode = require("qrcode");
-const fs = require("fs");
-
-const PORT = process.env.PORT || 3000;
-const app = express();
-
-let pairingCode = null;
-
-// 🌐 Home Page
-app.get("/", (req, res) => {
-  res.send(`
-    <center>
-      <h1>💥 QADEER-MD PAIRING 💥</h1>
-      <p>👇 Click below to get your WhatsApp Pairing Code 👇</p>
-      <a href="/pair"><button style="padding:10px;background:green;color:white;border:none;border-radius:5px;">Get Pairing Code</button></a>
-      <br><br>
-      <p>© Powered by Qadeer-MD</p>
-      <img src="https://files.catbox.moe/sidq95.jpg" width="250"/>
-    </center>
-  `);
-});
-
-// 🚀 Pairing Endpoint
-app.get("/pair", async (req, res) => {
-  try {
-    const { state, saveCreds } = await useMultiFileAuthState("auth_info");
-    const { version } = await fetchLatestBaileysVersion();
-
-    const sock = makeWASocket({
-      version,
-      logger: pino({ level: "silent" }),
-      printQRInTerminal: false,
-      browser: ["QADEER-MD", "Chrome", "5.0"],
-      auth: state,
-    });
-
-    sock.ev.on("connection.update", async (update) => {
-      const { connection, lastDisconnect, qr } = update;
-
-      if (qr) {
-        const qrImage = await qrcode.toDataURL(qr, { scale: 8 });
-        res.send(`
-          <center>
-            <h2>📱 Scan this QR with WhatsApp</h2>
-            <img src="${qrImage}" width="300"/>
-            <p>Open WhatsApp > Linked Devices > Link a Device</p>
-            <br>
-            <p>© Powered by QADEER-MD</p>
-          </center>
-        `);
-      }
-
-      if (connection === "open") {
-        console.log("✅ Connected!");
-        res.send("<h1>✅ QADEER-MD Successfully Connected!</h1>");
-        await saveCreds();
-      }
-
-      if (connection === "close") {
-        let reason = new Boom(lastDisconnect?.error)?.output.statusCode;
-        console.log("❌ Connection closed", reason);
-      }
-    });
-
-    sock.ev.on("creds.update", saveCreds);
-  } catch (e) {
-    console.error("❌ Pairing Error:", e);
-    res.send("<h2>❌ Something went wrong. Please try again.</h2>");
-  }
-});
-
-// Start Server
-app.listen(PORT, () => {
-  console.log(`🌍 QADEER-MD Pairing Server Running on Port ${PORT}`);
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QADEER-MD Pair</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 450px;
+      margin: auto;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+    }
+    img.logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid #38bdf8;
+    }
+    h1 {
+      color: #38bdf8;
+    }
+    .btn {
+      background: #38bdf8;
+      color: black;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #0ea5e9;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://files.catbox.moe/sidq95.jpg" class="logo" />
+    <h1>🤖 QADEER-MD PAIR 🤖</h1>
+    <p>📲 Click the button below to generate your QR Code.</p>
+    <a href="/qr" class="btn">Generate QR</a>
+  </div>
+</body>
+</html>
